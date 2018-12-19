@@ -1,0 +1,1659 @@
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (17.2ms)[0m  [1m[35mCREATE DATABASE `paypal` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE `paypal_devlopment` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `paypal_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (216.6ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (171.8ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('4088815166224671120', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCourses (20140926190851)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('4088815166224671120')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('4088815166224671120', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCourses (20140926190851)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('4088815166224671120')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('4088815166224671120', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCourses (20140926190851)
+  [1m[35m (185.9ms)[0m  [1m[35mCREATE TABLE `courses` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `price` int, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20140926190851')[0m
+  [1m[35m (31.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRegistrations (20140926191022)
+  [1m[35m (194.1ms)[0m  [1m[35mCREATE TABLE `registrations` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `course_id` int, `full_name` varchar(255), `company` varchar(255), `email` varchar(255), `telephone` varchar(255), `created_at` datetime, `updated_at` datetime,  INDEX `index_registrations_on_course_id`  (`course_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20140926191022')[0m
+  [1m[35m (65.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddParamsStatusTransactionIdPurchasedAtToRegistrations (20140928132405)
+  [1m[35m (644.6ms)[0m  [1m[35mALTER TABLE `registrations` ADD `notification_params` text[0m
+  [1m[35m (289.0ms)[0m  [1m[35mALTER TABLE `registrations` ADD `status` varchar(255)[0m
+  [1m[35m (394.4ms)[0m  [1m[35mALTER TABLE `registrations` ADD `transaction_id` varchar(255)[0m
+  [1m[35m (259.2ms)[0m  [1m[35mALTER TABLE `registrations` ADD `purchased_at` datetime[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20140928132405')[0m
+  [1m[35m (19.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-12-17 04:23:18', '2018-12-17 04:23:18')[0m
+  [1m[35m (57.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('4088815166224671120')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mCourse Destroy (14.6ms)[0m  [1m[31mDELETE FROM `courses`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO `courses` (`name`, `price`, `created_at`, `updated_at`) VALUES ('INTRODUCTION TO REPOSTERY (4 Weeks)', 475, '2018-12-17 04:23:33', '2018-12-17 04:23:33')[0m
+  [1m[35m (42.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`name`, `price`, `created_at`, `updated_at`) VALUES ('THE BEST BUTCHERY COURSE (4 Weeks)', 610, '2018-12-17 04:23:33', '2018-12-17 04:23:33')[0m
+  [1m[35m (37.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`name`, `price`, `created_at`, `updated_at`) VALUES ('SEA FOOD SECRETS COURSE (8 Weeks)', 1485, '2018-12-17 04:23:33', '2018-12-17 04:23:33')[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-12-17 09:55:12 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (undefined method `before_filter' for ApplicationController:Class
+Did you mean?  before_action):
+  
+app/controllers/application_controller.rb:6:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<top (required)>'
+app/controllers/courses_controller.rb:1:in `<top (required)>'
+Started GET "/" for 127.0.0.1 at 2018-12-17 09:55:43 +0530
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (2.3ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (15.8ms)
+Completed 200 OK in 984ms (Views: 980.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+  [1m[35m (3.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/application.self-85a3df08aab34bc6a22c0cf18bd349b5a3fda5edca3e6dead5e0390446173b12.js?body=1" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+  [1m[35m (5.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 09:55:44 +0530
+Started GET "/registrations/new?course_id=2" for 127.0.0.1 at 2018-12-17 09:55:52 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"2"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (27.3ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.9ms)
+Completed 200 OK in 145ms (Views: 52.5ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 09:56:37 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J5s4U6+9hrH3vBZ8fAsF0PdUvRzwe72s/nHix/dFfyuBC1sQxu0m8+zrDHtspJtTgQS7wikqF7Z1vLVO7SoBtA==", "registration"=>{"course_id"=>"2", "full_name"=>"Priyanka", "company"=>"Esferasoft", "email"=>"priyanka_sharma@esferasoft.com", "telephone"=>"123456"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.5ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (2, 'Priyanka', 'Esferasoft', 'priyanka_sharma@esferasoft.com', '123456', '2018-12-17 04:26:37', '2018-12-17 04:26:37')[0m
+  [1m[35m (196.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=610&business=merchant%40gotealeaf.com&cmd=_xclick&invoice=1&item_name=THE+BEST+BUTCHERY+COURSE+%284+Weeks%29&item_number=2&notify_url=http%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=http%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F1&upload=1
+Completed 302 Found in 284ms (ActiveRecord: 197.9ms)
+
+
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 10:01:47 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (11.2ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.8ms)
+Completed 200 OK in 80ms (Views: 76.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 10:01:49 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (2.6ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (6.3ms)
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.7ms)
+Completed 200 OK in 43ms (Views: 37.1ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 10:01:54 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SLQDFsXJ7EgUVtwgCcg0q5dh9LWxAogVBtaHeRvlL6vuJGBVrJlMCg8BxicZZ6oo4THya2hTIg+NG9DwAYpRNA==", "registration"=>{"course_id"=>"1", "full_name"=>"jhgjgj", "company"=>"user", "email"=>"zcxvbv!@erfg.yhjujhjn", "telephone"=>"0132434545"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (1.3ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (1, 'jhgjgj', 'user', 'zcxvbv!@erfg.yhjujhjn', '0132434545', '2018-12-17 04:31:54', '2018-12-17 04:31:54')[0m
+  [1m[35m (89.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=475&business=merchant%40gotealeaf.com&cmd=_xclick&invoice=2&item_name=INTRODUCTION+TO+REPOSTERY+%284+Weeks%29&item_number=1&notify_url=http%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=http%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F2&upload=1
+Completed 302 Found in 96ms (ActiveRecord: 91.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 10:55:21 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (3.6ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (50.8ms)
+Completed 200 OK in 1134ms (Views: 1091.5ms | ActiveRecord: 36.5ms)
+
+
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 10:55:22 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 10:55:22 +0530
+Started GET "/registrations/new?course_id=3" for 127.0.0.1 at 2018-12-17 10:55:25 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"3"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (10.3ms)
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (5.0ms)
+Completed 200 OK in 61ms (Views: 34.8ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 10:55:35 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GMMG11sWTToSUMNVFYSmIZbbdyBOiom1otxRUAk0mii+U2WUMkbteAkH2VIFKzii4Itx/pfbI68pEQbZE1vktw==", "registration"=>{"course_id"=>"3", "full_name"=>"Priya Sharma", "company"=>"test", "email"=>"tsehjt@gmail.com", "telephone"=>"09872119582"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.7ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (3, 'Priya Sharma', 'test', 'tsehjt@gmail.com', '09872119582', '2018-12-17 05:25:35', '2018-12-17 05:25:35')[0m
+  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` LIMIT 11[0m
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=1485&business=merchant%40gotealeaf.com&cmd=_xclick&invoice=3&item_name=SEA+FOOD+SECRETS+COURSE+%288+Weeks%29&item_number=3&notify_url=http%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=http%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F3&upload=1
+Completed 302 Found in 2897677ms (ActiveRecord: 34.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 11:44:13 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (2.8ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (12.3ms)
+Completed 200 OK in 927ms (Views: 917.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 11:44:15 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 11:44:15 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (881.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS `paypal_devlopment`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (373.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS `paypal_test`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE `paypal_devlopment` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `paypal_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (123.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (159.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('4088815166224671120', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCourses (20140926190851)
+  [1m[35m (199.3ms)[0m  [1m[35mCREATE TABLE `courses` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `price` int, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20140926190851')[0m
+  [1m[35m (50.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRegistrations (20140926191022)
+  [1m[35m (189.0ms)[0m  [1m[35mCREATE TABLE `registrations` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `course_id` int, `full_name` varchar(255), `company` varchar(255), `email` varchar(255), `telephone` varchar(255), `created_at` datetime, `updated_at` datetime,  INDEX `index_registrations_on_course_id`  (`course_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20140926191022')[0m
+  [1m[35m (64.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddParamsStatusTransactionIdPurchasedAtToRegistrations (20140928132405)
+  [1m[35m (517.1ms)[0m  [1m[35mALTER TABLE `registrations` ADD `notification_params` text[0m
+  [1m[35m (290.5ms)[0m  [1m[35mALTER TABLE `registrations` ADD `status` varchar(255)[0m
+  [1m[35m (377.2ms)[0m  [1m[35mALTER TABLE `registrations` ADD `transaction_id` varchar(255)[0m
+  [1m[35m (301.3ms)[0m  [1m[35mALTER TABLE `registrations` ADD `purchased_at` datetime[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20140928132405')[0m
+  [1m[35m (19.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-12-17 06:14:45', '2018-12-17 06:14:45')[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('4088815166224671120')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mCourse Destroy (0.3ms)[0m  [1m[31mDELETE FROM `courses`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO `courses` (`name`, `price`, `created_at`, `updated_at`) VALUES ('INTRODUCTION TO REPOSTERY (4 Weeks)', 475, '2018-12-17 06:14:54', '2018-12-17 06:14:54')[0m
+  [1m[35m (31.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO `courses` (`name`, `price`, `created_at`, `updated_at`) VALUES ('THE BEST BUTCHERY COURSE (4 Weeks)', 610, '2018-12-17 06:14:54', '2018-12-17 06:14:54')[0m
+  [1m[35m (35.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Create (0.2ms)[0m  [1m[32mINSERT INTO `courses` (`name`, `price`, `created_at`, `updated_at`) VALUES ('SEA FOOD SECRETS COURSE (8 Weeks)', 1485, '2018-12-17 06:14:54', '2018-12-17 06:14:54')[0m
+  [1m[35m (34.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-12-17 11:45:02 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (2.7ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (11.8ms)
+Completed 200 OK in 236ms (Views: 227.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 11:45:03 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 11:45:03 +0530
+Started GET "/success_stories" for 127.0.0.1 at 2018-12-17 11:45:06 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/success_stories"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/sign_in" for 127.0.0.1 at 2018-12-17 11:45:10 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/sign_in"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-17 11:45:12 +0530
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (2.2ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (9.5ms)
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 11:45:12 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 11:45:12 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/registrations/new?course_id=3" for 127.0.0.1 at 2018-12-17 11:45:14 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"3"}
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 3 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (10.8ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.7ms)
+Completed 200 OK in 67ms (Views: 35.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 11:45:17 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (7.5ms)
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.5ms)
+Completed 200 OK in 41ms (Views: 38.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 11:46:15 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eO/gAKsxkJTDcENOxbXM7tdYKzoZxGEauy6LFiveO5Pef4NDwmEw1tgnWUnVGlJtoQgt5MCVywAw49yfMbFFDA==", "registration"=>{"course_id"=>"1", "full_name"=>"Test", "company"=>"Esfera", "email"=>"renuka_chauhan@esferasoft.com", "telephone"=>"123456"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.3ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (1, 'Test', 'Esfera', 'renuka_chauhan@esferasoft.com', '123456', '2018-12-17 06:16:15', '2018-12-17 06:16:15')[0m
+  [1m[35m (59.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=475&business=rajwinder_kour%40esferasoft.com&cmd=_xclick&invoice=1&item_name=INTRODUCTION+TO+REPOSTERY+%284+Weeks%29&item_number=1&notify_url=http%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=http%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F1&upload=1
+Completed 302 Found in 27651ms (ActiveRecord: 60.8ms)
+
+
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 12:12:15 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (14.3ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.9ms)
+Completed 200 OK in 277ms (Views: 233.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:15 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:15 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:15 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:15 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:15 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:15 +0530
+  [1m[35m (1.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (4.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:16 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:16 +0530
+Started GET "/assets/application.self-85a3df08aab34bc6a22c0cf18bd349b5a3fda5edca3e6dead5e0390446173b12.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:16 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:16 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 12:12:16 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 12:12:16 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 12:12:16 +0530
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (11.6ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (5.3ms)
+Completed 200 OK in 43ms (Views: 39.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/application.self-85a3df08aab34bc6a22c0cf18bd349b5a3fda5edca3e6dead5e0390446173b12.js?body=1" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 12:12:18 +0530
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 12:14:12 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rQx6TfAWa5Gje3uPXR/VFjDgqD+Z1V/xaYcD1HA86zkLnBkOmUbL07gsYYhNsEuVRrCu4UCE9eviSlRdalOVpg==", "registration"=>{"course_id"=>"1", "full_name"=>"Priya Sharma", "company"=>"Esferasoft", "email"=>"renuka_chauhan@esferasoft.com", "telephone"=>"9622150185"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.5ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (1, 'Priya Sharma', 'Esferasoft', 'renuka_chauhan@esferasoft.com', '9622150185', '2018-12-17 06:44:12', '2018-12-17 06:44:12')[0m
+  [1m[35m (57.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=475&business=rajwinder_kour%40esferasoft.com&cmd=_xclick&invoice=2&item_name=INTRODUCTION+TO+REPOSTERY+%284+Weeks%29&item_number=1&notify_url=http%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=http%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F2&upload=1
+Completed 302 Found in 11595ms (ActiveRecord: 58.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (2.9ms)
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (12.6ms)
+Completed 200 OK in 237ms (Views: 227.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/application.self-85a3df08aab34bc6a22c0cf18bd349b5a3fda5edca3e6dead5e0390446173b12.js?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-17 12:26:58 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 12:26:59 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 12:26:59 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 12:26:59 +0530
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 12:27:05 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (11.4ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.8ms)
+Completed 200 OK in 69ms (Views: 36.4ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 12:27:18 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VISSu73aHQJUQrdA7xkKxPhJQP2E45xxEDXBTp+3DAzyFPH41Iq9QE8VrUf/tpRHjhlGI12yNmub+JbHhdhykw==", "registration"=>{"course_id"=>"1", "full_name"=>"Priya Sharma", "company"=>"user test", "email"=>"renuka_chauhan@esferasoft.com", "telephone"=>"9622150185"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.8ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (1, 'Priya Sharma', 'user test', 'renuka_chauhan@esferasoft.com', '9622150185', '2018-12-17 06:57:18', '2018-12-17 06:57:18')[0m
+  [1m[35m (33.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=475&business=rajwinder_kour%40esferasoft.com&cmd=_xclick&invoice=3&item_name=INTRODUCTION+TO+REPOSTERY+%284+Weeks%29&item_number=1&notify_url=https%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=https%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F3&upload=1
+Completed 302 Found in 20226ms (ActiveRecord: 35.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 15:08:05 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (3.2ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (12.4ms)
+Completed 200 OK in 255ms (Views: 246.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 15:08:10 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 15:08:10 +0530
+Started GET "/registrations/new?course_id=2" for 127.0.0.1 at 2018-12-17 15:08:13 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"2"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (11.1ms)
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (5.1ms)
+Completed 200 OK in 61ms (Views: 36.0ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 15:08:23 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aWRW4RTjIx1xfluQMfJfZmTPMK53w+ZIB0P6eOdSoobP9DWifbODX2opQZchXcHlEp82cK6STFKMjq3x/T3cGQ==", "registration"=>{"course_id"=>"2", "full_name"=>"jhgjgj", "company"=>"user", "email"=>"renuka_chauhan@esferasoft.com", "telephone"=>"0132434545"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.4ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (2, 'jhgjgj', 'user', 'renuka_chauhan@esferasoft.com', '0132434545', '2018-12-17 09:38:23', '2018-12-17 09:38:23')[0m
+  [1m[35m (47.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 2 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=610&business=rajwinder_kour%40esferasoft.com&cmd=_xclick&invoice=4&item_name=THE+BEST+BUTCHERY+COURSE+%284+Weeks%29&item_number=2&notify_url=https%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=https%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F4&upload=1
+Completed 302 Found in 9618ms (ActiveRecord: 48.4ms)
+
+
+Started GET "/orders/create" for 127.0.0.1 at 2018-12-17 15:11:12 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/orders/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/orders/" for 127.0.0.1 at 2018-12-17 15:11:14 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/orders"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/orders/create" for 127.0.0.1 at 2018-12-17 15:11:15 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/orders/create"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/orders" for 127.0.0.1 at 2018-12-17 15:11:15 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/orders"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (1.8ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (6.9ms)
+Completed 200 OK in 54ms (Views: 51.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/application.self-85a3df08aab34bc6a22c0cf18bd349b5a3fda5edca3e6dead5e0390446173b12.js?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 15:11:16 +0530
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 15:11:19 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (10.3ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (7.2ms)
+Completed 200 OK in 69ms (Views: 63.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 15:11:27 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LtFiz6tKkkvpGuCMSUynedQNYpuJcukslShYmXtsLh+IQQGMwhoyCfJN+otZ4zn6ol1kRVAjQzYe5Q8QYQNQgA==", "registration"=>{"course_id"=>"1", "full_name"=>"Priya Sharma", "company"=>"hghj", "email"=>"renuka_chauhan@esferasoft.com", "telephone"=>"9622150185"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (1.9ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (1, 'Priya Sharma', 'hghj', 'renuka_chauhan@esferasoft.com', '9622150185', '2018-12-17 09:41:27', '2018-12-17 09:41:27')[0m
+  [1m[35m (21.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=475&business=rajwinder_kour%40esferasoft.com&cmd=_xclick&invoice=5&item_name=INTRODUCTION+TO+REPOSTERY+%284+Weeks%29&item_number=1&notify_url=https%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=https%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F5&upload=1
+Completed 302 Found in 10654ms (ActiveRecord: 24.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (1.4ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (16.0ms)
+Completed 200 OK in 54ms (Views: 50.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-17 15:27:14 +0530
+  [1m[35m (3.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (5.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/application.self-85a3df08aab34bc6a22c0cf18bd349b5a3fda5edca3e6dead5e0390446173b12.js?body=1" for 127.0.0.1 at 2018-12-17 15:27:15 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-12-17 15:27:15 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 15:27:15 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 15:27:15 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 15:27:15 +0530
+Started GET "/success_stories" for 127.0.0.1 at 2018-12-17 15:27:18 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/success_stories"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 15:27:20 +0530
+Started GET "/sign_in" for 127.0.0.1 at 2018-12-17 15:27:21 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/sign_in"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-17 15:27:23 +0530
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (1.9ms)
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:23 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:23 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:23 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:23 +0530
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:23 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 15:27:23 +0530
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (7.8ms)
+Completed 200 OK in 105ms (Views: 100.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 15:28:38 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (6.7ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (6.3ms)
+Completed 200 OK in 58ms (Views: 33.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 15:28:41 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (11.4ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (5.8ms)
+Completed 200 OK in 50ms (Views: 46.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 15:28:53 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0kl3eNz4GeJz/V6H1BRhCJbO6YskiYGXK9OTtQZvvjR02RQ7tai5oGiqRIDEu/+L4J7vVf3YK42gHsQ8HADAqw==", "registration"=>{"course_id"=>"1", "full_name"=>"Priya Sharma", "company"=>"user test", "email"=>"renuka_chauhan@esferasoft.com", "telephone"=>"9622150185"}, "commit"=>"Registration Payment"}
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.4ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (1, 'Priya Sharma', 'user test', 'renuka_chauhan@esferasoft.com', '9622150185', '2018-12-17 09:58:53', '2018-12-17 09:58:53')[0m
+  [1m[35m (63.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+Started GET "/users/2" for 127.0.0.1 at 2018-12-17 15:34:48 +0530
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users/2"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=475&business=rajwinder_kour%40esferasoft.com&cmd=_xclick&invoice=6&item_name=INTRODUCTION+TO+REPOSTERY+%284+Weeks%29&item_number=1&notify_url=https%3A%2F%2F3c99b47d.ngrok.com%2Fhook&quantity=1&return=https%3A%2F%2F3c99b47d.ngrok.com%2Fregistrations%2F6&upload=1
+Completed   in 1262766ms (ActiveRecord: 66.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.haml within layouts/application
+  Rendered courses/index.html.haml within layouts/application (2.8ms)
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (12.0ms)
+Completed 200 OK in 268ms (Views: 259.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+  [1m[35m (1.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/application.self-85a3df08aab34bc6a22c0cf18bd349b5a3fda5edca3e6dead5e0390446173b12.js?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+  [1m[35m (10.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/assets/course-bg-arrow.png" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/MYRIADPRO-REGULAR-d8f1b80682c8fc7f594791983ad8a217f17a8abd6062c7430d42c50f63711039.OTF" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/assets/code-bg.jpg" for 127.0.0.1 at 2018-12-17 15:50:14 +0530
+Started GET "/registrations/new?course_id=1" for 127.0.0.1 at 2018-12-17 15:50:16 +0530
+Processing by RegistrationsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+  Rendering registrations/new.html.haml within layouts/application
+  Rendered registrations/new.html.haml within layouts/application (10.9ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT `courses`.* FROM `courses`[0m
+  Rendered courses/_index.html.haml (4.9ms)
+Completed 200 OK in 68ms (Views: 35.4ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/registrations" for 127.0.0.1 at 2018-12-17 15:50:25 +0530
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"22apy9gBsoRKwwbODhenei/hjKhxxwi3PeqB/GqCq/599sqIsVESxlGUHMkeuDn5WbGKdqiWoq22J9Z1cO3VYQ==", "registration"=>{"course_id"=>"1", "full_name"=>"zxccx jhgjgj", "company"=>"user", "email"=>"renuka_chauhan@esferasoft.com", "telephone"=>"0132434545"}, "commit"=>"Registration Payment"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRegistration Create (0.4ms)[0m  [1m[32mINSERT INTO `registrations` (`course_id`, `full_name`, `company`, `email`, `telephone`, `created_at`, `updated_at`) VALUES (1, 'zxccx jhgjgj', 'user', 'renuka_chauhan@esferasoft.com', '0132434545', '2018-12-17 10:20:25', '2018-12-17 10:20:25')[0m
+  [1m[35m (102.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  `courses`.* FROM `courses` WHERE `courses`.`id` = 1 LIMIT 1[0m
+Redirected to https://www.sandbox.paypal.com/cgi-bin/webscr?amount=475&business=rajwinder_kour%40esferasoft.com&cmd=_xclick&invoice=7&item_name=INTRODUCTION+TO+REPOSTERY+%284+Weeks%29&item_number=1&notify_url=https%3A%2F%2Fipnpb.sandbox.paypal.com%2Fcgi-bin%2Fwebscr%2Fhook&quantity=1&return=https%3A%2F%2Fipnpb.sandbox.paypal.com%2Fcgi-bin%2Fwebscr%2Fregistrations%2F7&upload=1
+Completed 302 Found in 60002ms (ActiveRecord: 103.3ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (616.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS `paypal_devlopment`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (50.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS `paypal_test`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `paypal_devlopment` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `paypal_test` DEFAULT CHARACTER SET `utf8`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (104.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (177.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT GET_LOCK('4088815166224671120', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCategories (20080621194238)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT RELEASE_LOCK('4088815166224671120')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('4088815166224671120', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateCategories (20080621194238)
+  [1m[35m (107.5ms)[0m  [1m[35mCREATE TABLE `categories` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20080621194238')[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20080621194423)
+  [1m[35m (252.7ms)[0m  [1m[35mCREATE TABLE `products` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `category_id` int, `name` varchar(255), `price` decimal, `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20080621194423')[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCarts (20081221210944)
+  [1m[35m (179.7ms)[0m  [1m[35mCREATE TABLE `carts` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `purchased_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20081221210944')[0m
+  [1m[35m (31.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLineItems (20081221211031)
+  [1m[35m (257.5ms)[0m  [1m[35mCREATE TABLE `line_items` (`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `unit_price` decimal, `product_id` int, `cart_id` int, `quantity` int, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20081221211031')[0m
+  [1m[35m (28.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-12-17 10:51:44', '2018-12-17 10:51:44')[0m
+  [1m[35m (56.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('4088815166224671120')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:22:04 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (uninitialized constant ApplicationController):
+  
+app/controllers/products_controller.rb:1:in `<top (required)>'
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:23:34 +0530
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/products_controller.rb:3:in `index'
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:24:00 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 204ms (Views: 201.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:24:02 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:24:23 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 216ms (Views: 206.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/lfrgrf" for 127.0.0.1 at 2018-12-17 16:24:39 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/lfrgrf"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/products" for 127.0.0.1 at 2018-12-17 16:24:58 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products/create" for 127.0.0.1 at 2018-12-17 16:25:02 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"create"}
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 0 LIMIT 1[0m
+Completed 404 Not Found in 7ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=create):
+  
+app/controllers/products_controller.rb:7:in `show'
+Started GET "/products/1" for 127.0.0.1 at 2018-12-17 16:25:15 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=1):
+  
+app/controllers/products_controller.rb:7:in `show'
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:26:42 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (52.4ms)
+Completed 200 OK in 67ms (Views: 64.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 16:26:45 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LineItemsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 16:27:40 +0530
+  
+NoMethodError (undefined method `current_cart' for #<ActionDispatch::Routing::Mapper:0x00007fc3d047a658>):
+  
+config/routes.rb:2:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/lfrgrf" for 127.0.0.1 at 2018-12-17 16:28:34 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/lfrgrf"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/carts/" for 127.0.0.1 at 2018-12-17 16:28:54 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for CartsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 16:28:57 +0530
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCart Create (0.3ms)[0m  [1m[32mINSERT INTO `carts` (`created_at`, `updated_at`) VALUES ('2018-12-17 10:58:57', '2018-12-17 10:58:57')[0m
+  [1m[35m (31.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  Rendered carts/show.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 199ms (Views: 55.2ms | ActiveRecord: 35.0ms)
+
+
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 16:31:40 +0530
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.7ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered carts/show.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 63ms (Views: 36.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/kf" for 127.0.0.1 at 2018-12-17 16:32:26 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/kf"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/products/new" for 127.0.0.1 at 2018-12-17 16:32:40 +0530
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  Rendered products/_form.html.erb (97.3ms)
+  Rendered products/new.html.erb within layouts/application (98.5ms)
+Completed 200 OK in 108ms (Views: 105.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-12-17 16:32:44 +0530
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  Rendered products/_form.html.erb (3.3ms)
+  Rendered products/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-12-17 16:32:46 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-12-17 16:32:48 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendering products/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 0 LIMIT 1[0m
+  Rendered products/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 22ms (Views: 16.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2018-12-17 16:32:50 +0530
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendering products/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  Rendered products/_form.html.erb (4.1ms)
+  Rendered products/edit.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-12-17 16:32:54 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 16:32:55 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LineItemsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 16:33:00 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LineItemsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 16:33:07 +0530
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (1.2ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered carts/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 21ms (Views: 15.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-12-17 16:33:11 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 16:39:18 +0530
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered carts/show.html.erb within layouts/application (37040.4ms)
+Completed 200 OK in 37277ms (Views: 37255.6ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/bootstrap.min.self-c99d69ee875f26ecf0ced321bd94d8ab765a1ee5b5eb503a2c44d9212dc49706.css?body=1" for 127.0.0.1 at 2018-12-17 16:39:55 +0530
+Started GET "/assets/front.self-d96a68a6f09387681ca1a9913d6f4b1865faee956a26ffb86abc3e716727468a.css?body=1" for 127.0.0.1 at 2018-12-17 16:39:55 +0530
+Started GET "/assets/normalize.self-57f8e3d18706a71aa04239036d738f5fecc85005a127270488475ebd11b71d73.css?body=1" for 127.0.0.1 at 2018-12-17 16:39:55 +0530
+Started GET "/assets/application.self-565a90fd247bd9ef75cf5f71be1e11e37c3ad80695d8bdfb331fe844afbe0a9e.css?body=1" for 127.0.0.1 at 2018-12-17 16:39:55 +0530
+Started GET "/assets/form.self-cd5a2e6d9fd13849befb4bea0ed2664e5aa03c1cf9023e53d25fab32b61d4e0e.css?body=1" for 127.0.0.1 at 2018-12-17 16:39:55 +0530
+Started GET "/assets/fonts.self-69a6393f9e93ec73463aab854dc97bb4d17165bedaedf8eda193de75c1bb945b.css?body=1" for 127.0.0.1 at 2018-12-17 16:39:55 +0530
+  [1m[35m (3.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (3.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:44:51 +0530
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 225ms (Views: 214.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 16:44:54 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LineItemsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 16:45:00 +0530
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.3ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered carts/show.html.erb within layouts/application (10602.8ms)
+Completed 200 OK in 10631ms (Views: 10614.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:49:18 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 16:50:44 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LineItemsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-17 16:51:04 +0530
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 16:51:06 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LineItemsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 16:51:10 +0530
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.5ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.6ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered carts/show.html.erb within layouts/application (19197.2ms)
+Completed 200 OK in 19215ms (Views: 19211.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 16:51:48 +0530
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered carts/show.html.erb within layouts/application (5012.9ms)
+Completed 200 OK in 5030ms (Views: 5026.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 17:00:51 +0530
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendered products/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 227ms (Views: 215.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/line_items?product_id=1" for 127.0.0.1 at 2018-12-17 17:00:53 +0530
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for LineItemsController):
+  
+actionpack (5.2.2) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.2) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.2) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.2) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.2) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.2) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+rack (2.0.6) lib/rack/handler/webrick.rb:86:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+/home/ip-d/.rvm/rubies/ruby-2.5.3/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+Started GET "/carts/1" for 127.0.0.1 at 2018-12-17 17:00:58 +0530
+Processing by CartsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCart Load (0.3ms)[0m  [1m[34mSELECT  `carts`.* FROM `carts` WHERE `carts`.`id` = 1 LIMIT 1[0m
+  Rendering carts/show.html.erb within layouts/application
+  [1m[36mLineItem Load (0.4ms)[0m  [1m[34mSELECT `line_items`.* FROM `line_items` WHERE `line_items`.`cart_id` = 1[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  `products`.* FROM `products` WHERE `products`.`id` = 1 LIMIT 1[0m
+  Rendered carts/show.html.erb within layouts/application (8572.5ms)
+Completed 200 OK in 8597ms (Views: 8582.9ms | ActiveRecord: 3.3ms)
+
+
