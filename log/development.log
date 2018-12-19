@@ -1,0 +1,414 @@
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (289.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (148.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('8155624167883061100', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20180602064748)
+  [1m[35m (169.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180602064748')[0m
+  [1m[35m (23.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-12-19 05:33:20', '2018-12-19 05:33:20')[0m
+  [1m[35m (53.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('8155624167883061100')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:03:37 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 1414ms (Views: 1404.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-12-19 11:03:41 +0530
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (51.6ms)
+  Rendered users/new.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 72ms (Views: 65.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-12-19 11:03:44 +0530
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tY0xpXq7WRYnedlrXcB81/pZe14w4oCm184dxZ9xJqaP+cvosFM+M5SEQbluWRA99IwJDCoSr+BwGF+f5r4ORQ==", "user"=>{"name"=>"dfdf"}, "commit"=>"Create User"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `created_at`, `updated_at`) VALUES ('dfdf', '2018-12-19 05:33:44', '2018-12-19 05:33:44')[0m
+  [1m[35m (155.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 160ms (ActiveRecord: 155.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-12-19 11:03:44 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 119ms (Views: 19.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/fdf" for 127.0.0.1 at 2018-12-19 11:03:52 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/fdf"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-19 11:04:06 +0530
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/user_voice_path" for 127.0.0.1 at 2018-12-19 11:04:08 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/user_voice_path"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/speech_to_text_path" for 127.0.0.1 at 2018-12-19 11:04:15 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/speech_to_text_path"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/1" for 127.0.0.1 at 2018-12-19 11:04:28 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-12-19 11:04:30 +0530
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-12-19 11:04:30 +0530
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.3ms)
+  Rendered users/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/use" for 127.0.0.1 at 2018-12-19 11:04:45 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/use"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/call" for 127.0.0.1 at 2018-12-19 11:04:56 +0530
+Processing by UsersController#call as HTML
+Redirected to http://localhost:3000/user_voice
+Completed 302 Found in 1615ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:04:58 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 1164ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:05:28 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 1161ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FRE1b10f5b97e68a25c79445727d9cb7a2e.wav" for 127.0.0.1 at 2018-12-19 11:05:37 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/RE1b10f5b97e68a25c79445727d9cb7a2e.wav"}
+Completed 500 Internal Server Error in 2370ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (The keyfile '/home/ip-d/Downloads/mastodon-3c070d97c836.json' is not a valid file.):
+  
+app/controllers/users_controller.rb:102:in `speech_to_text'
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FREa64c2972a365603a90ab08fe345ce16e.wav" for 127.0.0.1 at 2018-12-19 11:05:44 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/REa64c2972a365603a90ab08fe345ce16e.wav"}
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FRE831c11a0877ab3f0d3014804f843439d.wav" for 127.0.0.1 at 2018-12-19 11:05:45 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/RE831c11a0877ab3f0d3014804f843439d.wav"}
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FRE42f5eb88de4215bb07907101e358a249.wav" for 127.0.0.1 at 2018-12-19 11:05:46 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/RE42f5eb88de4215bb07907101e358a249.wav"}
+Completed 500 Internal Server Error in 1927ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (The keyfile '/home/ip-d/Downloads/mastodon-3c070d97c836.json' is not a valid file.):
+  
+app/controllers/users_controller.rb:102:in `speech_to_text'
+Completed 500 Internal Server Error in 1697ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (The keyfile '/home/ip-d/Downloads/mastodon-3c070d97c836.json' is not a valid file.):
+  
+app/controllers/users_controller.rb:102:in `speech_to_text'
+Completed 500 Internal Server Error in 3208ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (The keyfile '/home/ip-d/Downloads/mastodon-3c070d97c836.json' is not a valid file.):
+  
+app/controllers/users_controller.rb:102:in `speech_to_text'
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FREd1d834b9e87d0b29dec168361524b206.wav" for 127.0.0.1 at 2018-12-19 11:05:57 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/REd1d834b9e87d0b29dec168361524b206.wav"}
+Completed 500 Internal Server Error in 7163ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (The keyfile '/home/ip-d/Downloads/mastodon-3c070d97c836.json' is not a valid file.):
+  
+app/controllers/users_controller.rb:102:in `speech_to_text'
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:06:06 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 1375ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:10:22 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 3269ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FRE1b10f5b97e68a25c79445727d9cb7a2e.wav" for 127.0.0.1 at 2018-12-19 11:10:27 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/RE1b10f5b97e68a25c79445727d9cb7a2e.wav"}
+Completed 500 Internal Server Error in 9677ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unable to convert RE1b10f5b97e68a25c79445727d9cb7a2e.flac to an Audio):
+  
+app/controllers/users_controller.rb:103:in `speech_to_text'
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:10:41 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 4780ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FRE8a677e964628bcee4b1479d438dcff43.wav" for 127.0.0.1 at 2018-12-19 11:10:47 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/RE8a677e964628bcee4b1479d438dcff43.wav"}
+Completed 500 Internal Server Error in 3945ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unable to convert RE8a677e964628bcee4b1479d438dcff43.flac to an Audio):
+  
+app/controllers/users_controller.rb:103:in `speech_to_text'
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:15:36 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 1720ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:15:39 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 1394ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FRE1b10f5b97e68a25c79445727d9cb7a2e.wav" for 127.0.0.1 at 2018-12-19 11:15:41 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/RE1b10f5b97e68a25c79445727d9cb7a2e.wav"}
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FREa64c2972a365603a90ab08fe345ce16e.wav" for 127.0.0.1 at 2018-12-19 11:15:48 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/REa64c2972a365603a90ab08fe345ce16e.wav"}
+Completed 500 Internal Server Error in 7377ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unable to convert RE1b10f5b97e68a25c79445727d9cb7a2e.flac to an Audio):
+  
+app/controllers/users_controller.rb:103:in `speech_to_text'
+Completed 500 Internal Server Error in 2317ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unable to convert REa64c2972a365603a90ab08fe345ce16e.flac to an Audio):
+  
+app/controllers/users_controller.rb:103:in `speech_to_text'
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:16:12 +0530
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 1471ms (Views: 222.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:16:16 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 1354ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FRE1f05f2ed868b1a493d73cb5dd6e9ac95.wav" for 127.0.0.1 at 2018-12-19 11:16:19 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/RE1f05f2ed868b1a493d73cb5dd6e9ac95.wav"}
+Completed 500 Internal Server Error in 8721ms (ActiveRecord: 0.0ms)
+
+
+  
+Google::Cloud::InvalidArgumentError (3:sample_rate_hertz (16000) in RecognitionConfig must either be unspecified or match the value in the FLAC header (8000).):
+  
+app/controllers/users_controller.rb:104:in `speech_to_text'
+Started GET "/call" for 127.0.0.1 at 2018-12-19 11:17:49 +0530
+Processing by UsersController#call as HTML
+Redirected to http://localhost:3000/user_voice
+Completed 302 Found in 1259ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:17:50 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 1428ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user_voice" for 127.0.0.1 at 2018-12-19 11:18:11 +0530
+Processing by UsersController#voice as HTML
+  Rendering users/voice.html.erb within layouts/application
+  Rendered users/voice.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 1392ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FREd13e5b0326bc56737db70926383f20d4.wav" for 127.0.0.1 at 2018-12-19 11:18:15 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/REd13e5b0326bc56737db70926383f20d4.wav"}
+Completed 500 Internal Server Error in 7590ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unable to convert REd13e5b0326bc56737db70926383f20d4.flac to an Audio):
+  
+app/controllers/users_controller.rb:103:in `speech_to_text'
+Started GET "/speech_to_text?path=https%3A%2F%2Fapi.twilio.com%2F%2F2010-04-01%2FAccounts%2FAC190b568b8c4d53715714747d849f4408%2FRecordings%2FREd13e5b0326bc56737db70926383f20d4.wav" for 127.0.0.1 at 2018-12-19 11:18:45 +0530
+Processing by UsersController#speech_to_text as HTML
+  Parameters: {"path"=>"https://api.twilio.com//2010-04-01/Accounts/AC190b568b8c4d53715714747d849f4408/Recordings/REd13e5b0326bc56737db70926383f20d4.wav"}

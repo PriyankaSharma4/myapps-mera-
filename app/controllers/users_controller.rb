@@ -94,13 +94,14 @@ class UsersController < ApplicationController
 
   def speech_to_text
     project_id = "mastodon-206209"   #### get from google cloud account
-    key_file   = "/home/ip-d/Downloads/mastodon-3c070d97c836.json"     #### in order to create key_file go to google cloud console, click on APIs & services, then credentials, then create credentials, then service account key, select service account, Key type as json, it will save somewhere on your system, give that path here
+    key_file   = "/home/ip-d/Downloads/mastodon-f083c7f4b8bc.json"     #### in order to create key_file go to google cloud console, click on APIs & services, then credentials, then create credentials, then service account key, select service account, Key type as json, it will save somewhere on your system, give that path here
 
     download = open(params[:path])
     IO.copy_stream(download, params[:path].split('/').last)
     system "ffmpeg -i #{params[:path].split('/').last} -ac 1 #{params[:path].split('/').last.split('.').first+'.flac'}"
     speech = Google::Cloud::Speech.new project: project_id, keyfile: key_file
-    audio = speech.audio params[:path].split('/').last.split('.').first+'.flac', encoding: :FLAC, language: "en-US", sample_rate: 8000
+    binding.pry
+    audio = speech.audio params[:path].split('/').last.split('.').first+'.flac', encoding: :FLAC, language: "en-US", sample_rate: 16000
     results = audio.recognize
     result = results.first
     result.transcript #=> "how old is the Brooklyn Bridge"
